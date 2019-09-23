@@ -1,7 +1,13 @@
 package main
 
-import "uspscan/uspscan"
+import (
+	"fmt"
+	"uspscan/uspscan"
+)
 
 func main() {
-	uspscan.Run()
+	err := uspscan.Scan()
+	if err != nil {
+		fmt.Println(err)
+	}
 }

@@ -4,12 +4,11 @@ import (
 	"fmt"
 )
 
-// Run performs the unquoted service path check
-func Run() {
+// Scan performs the unquoted service path check
+func Scan() error {
 	serviceCfgs, err := listServices()
 	if err != nil {
-		fmt.Println(err)
-		return
+		return err
 	}
 
 	for _, cfg := range serviceCfgs {
@@ -34,4 +33,5 @@ func Run() {
 			}
 		}
 	}
+	return nil
 }
